@@ -40,10 +40,9 @@ Aplicación web desarrollada en Node.js con EJS y MongoDB (Atlas), que permite a
 - **Login y Logout**
 - **Listado de productos propios**
 - **Creación y eliminación de productos**
+- **Upload de imagen en los nuevos productos**
 - **Control de acceso mediante sesión**
 - **Imágenes de productos almacenadas localmente**
-
-## Funcionalidades a implementar a futuro 
 - **Filtro de productos por usuario**
 - **Paginación**
 ---
@@ -79,6 +78,5 @@ Tras inicializar la base de datos, se crean los siguientes usuarios de prueba:
 ## Notas adicionales
 
 - Cada usuario solo puede ver o borrar sus propios productos.
-- Las fotos se leen desde la carpeta `/public/images`, el usuario debe introducir solo el nombre del archivo (`iphone.jpg`, etc.).
-- No se han añadido validaciones avanzadas ni subida de archivos (por simplicidad).
+- No se han añadido validaciones avanzadas.
 - No se han incluido tests unitarios.
