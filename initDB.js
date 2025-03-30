@@ -60,6 +60,76 @@ async function initProducts() {
       tags: ['lifestyle', 'motor'],
       owner: users[1]._id,
     },
+    {
+      name: 'Esterilla Yoga',
+      price: 312,
+      photo: 'esterilla_yoga.jpg',
+      tags: ['lifestyle'],
+      owner: users[0]._id,
+    },
+    {
+      name: 'Funda movil color verde',
+      price: 555,
+      photo: 'funda_movil_verde.jpg',
+      tags: ['mobile'],
+      owner: users[0]._id,
+    },
+    {
+      name: 'Manta de yoga',
+      price: 479,
+      photo: 'manta_yoga.jpg',
+      tags: ['lifestyle'],
+      owner: users[0]._id,
+    },
+    {
+      name: 'GPS coche',
+      price: 872,
+      photo: 'gps_coche.jpg',
+      tags: ['mobile', 'motor'],
+      owner: users[0]._id,
+    },
+    {
+      name: 'Mochila urbana',
+      price: 917,
+      photo: 'mochila_urbana.jpg',
+      tags: ['lifestyle'],
+      owner: users[0]._id,
+    },
+    {
+      name: 'Mochila amarilla',
+      price: 344,
+      photo: 'mochila_urbana_amarilla.jpg',
+      tags: ['lifestyle'],
+      owner: users[0]._id,
+    },
+    {
+      name: 'Patinete eléctrico',
+      price: 284,
+      photo: 'patinete_electrico.jpg',
+      tags: ['motor', 'work'],
+      owner: users[0]._id,
+    },
+    {
+      name: 'Vespa',
+      price: 324,
+      photo: 'vespa.jpg',
+      tags: ['motor'],
+      owner: users[1]._id,
+    },
+    {
+      name: 'Cascos running',
+      price: 477,
+      photo: 'cascos_running.jpg',
+      tags: ['mobile', 'lifestyle'],
+      owner: users[1]._id,
+    },
+    {
+      name: 'Cascos Beats',
+      price: 190,
+      photo: 'cascos_beats.jpg',
+      tags: ['mobile'],
+      owner: users[1]._id,
+    }
   ])
 
   console.log(`Inserted ${insertedProducts.length} products.`)

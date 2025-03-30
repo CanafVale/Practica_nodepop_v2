@@ -54,8 +54,8 @@ Tras inicializar la base de datos, se crean los siguientes usuarios de prueba:
 
 | Email              | Contraseña |
 |--------------------|------------|
-| demo@example.com   | 1234       |
-| user@example.com   | 1234       |
+| admin@nodepop.com  | 1234       |
+| user@nodepop.com   | 1234       |
 
 ---
 

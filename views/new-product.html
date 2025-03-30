@@ -3,7 +3,7 @@
 <div class="container mt-4">
   <h1>Nuevo producto</h1>
 
-  <form action="/products" method="POST">
+  <form action="/products" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="name" class="form-label">Nombre</label>
       <input type="text" class="form-control" id="name" name="name" required>
@@ -15,10 +15,8 @@
     </div>
 
     <div class="mb-3">
-      <label for="photo" class="form-label">
-        Nombre del archivo de imagen (por ejemplo: iphone.jpg)
-      </label>
-      <input type="text" class="form-control" id="photo" name="photo" placeholder="iphone.jpg" required>
+      <label for="photo" class="form-label">Selecciona una imagen</label>
+      <input type="file" class="form-control" id="photo" name="photo" accept="image/*" required>
     </div>
 
     <div class="mb-3">

@@ -4,6 +4,7 @@ import express from 'express'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
 import { guard } from './lib/sessionManager.js'
+import multer from 'multer'
 
 import * as loginController from './controllers/loginController.js'
 import * as homeController from './controllers/homeController.js'
@@ -14,6 +15,8 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const app = express()
+
+const upload = multer({ dest: 'uploads/' })
 
 // Motor de vistas
 app.set('views', path.join(__dirname, 'views'))
@@ -29,6 +32,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(sessionManager.middleware)
 app.use(sessionManager.useSessionInViews)
+app.post('/products', guard, upload.single('photo'), productController.createProduct)
 
 // Rutas
 app.get('/', sessionManager.guard, homeController.index)
