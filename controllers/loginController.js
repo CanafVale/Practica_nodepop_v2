@@ -19,7 +19,9 @@ export function postLogin(req, res) {
     return res.render('login')
   }
 
-  req.session.userId = user.id // importante que coincida con 'owner' en fakeProducts
+  // Login exitoso
+  req.session.userId = user.id
+  req.session.email = user.email // 👈 BONUS: Para mostrar email en la cabecera
   res.redirect(redir || '/')
 }
 
