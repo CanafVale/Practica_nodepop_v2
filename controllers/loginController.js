@@ -7,13 +7,6 @@ export function index(req, res) {
   res.render('login')
 }
 
-export function logout(req, res) {
-  req.session.regenerate(err => {
-    if (err) return next(err)
-    res.redirect('/')
-  })
-}
-
 export function postLogin(req, res) {
   const { email, password } = req.body
   const redir = req.query.redir
@@ -26,6 +19,13 @@ export function postLogin(req, res) {
     return res.render('login')
   }
 
-  req.session.userId = user.id
-  res.redirect(redir ? redir : '/')
+  req.session.userId = user.id // importante que coincida con 'owner' en fakeProducts
+  res.redirect(redir || '/')
+}
+
+export function logout(req, res, next) {
+  req.session.regenerate(err => {
+    if (err) return next(err)
+    res.redirect('/login')
+  })
 }

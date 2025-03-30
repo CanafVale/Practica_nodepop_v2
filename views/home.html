@@ -1,22 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Nodepop</title>
-</head>
-<body>
-  <h1>Hola Nodepop</h1>
+<%- include('header.html') %>
 
-<h2>Productos</h2>
+<div class="container mt-4">
 
-<% products.forEach(function(product) { %>
-  <img src="<%= product.image %>" alt="<%= product.name %>" width="200">
-  <h3><%= product.name %></h3>
-  <p>Precio: <%= product.price %> €</p>
-  <p>Tags: <%= product.tags.join(', ') %></p>
-  <hr>
-<% }) %>
+  <p><strong>User ID:</strong> <%= session.userId %></p>
 
+  <% if (!session.userId) { %>
+    <div class="alert alert-warning">
+      <p><a href="/login">Login</a> para acceder a tus productos.</p>
+    </div>
+  <% } %>
 
-</body>
-</html>
+  <h2>Productos</h2>
+
+  <% products.forEach(function(product) { %>
+    <div class="mb-4 border-bottom pb-3">
+      <img src="<%= product.image %>" alt="<%= product.name %>" width="200">
+      <h3 class="mt-2"><%= product.name %></h3>
+      <p>Precio: <%= product.price %> €</p>
+      <p>Tags: <%= product.tags.join(', ') %></p>
+    </div>
+  <% }) %>
+
+</div>
+
+<%- include('footer.html') %>
