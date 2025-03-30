@@ -1,5 +1,5 @@
 // controllers/loginController.js
-import { findUserByEmail, validatePassword } from '../models/User.js'
+import User, { findUserByEmail, validatePassword } from '../models/User.js'
 
 export function index(req, res) {
   res.locals.error = ''
@@ -7,21 +7,21 @@ export function index(req, res) {
   res.render('login')
 }
 
-export function postLogin(req, res) {
+export async function postLogin(req, res) {
   const { email, password } = req.body
   const redir = req.query.redir
 
-  const user = findUserByEmail(email)
+  const user = await findUserByEmail(email)
 
-  if (!user || !validatePassword(user, password)) {
+  if (!user || !(await validatePassword(user, password))) {
     res.locals.error = 'Credenciales incorrectas'
     res.locals.email = email
     return res.render('login')
   }
 
   // Login exitoso
-  req.session.userId = user.id
-  req.session.email = user.email // 👈 BONUS: Para mostrar email en la cabecera
+  req.session.userId = user._id
+  req.session.email = user.email
   res.redirect(redir || '/')
 }
 

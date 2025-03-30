@@ -24,7 +24,7 @@
         <% if (!session.userId) { %>
           <a class="btn btn-success" href="/login">Login</a>
         <% } else { %>
-          <span class="me-3 text-secondary">Hola, <%= session.email %></span>
+          <span class="me-3 text-primary">Sesión: <strong><%= session.email %></strong></span>
           <a class="btn btn-outline-success" href="/logout">Logout</a>
         <% } %>
         

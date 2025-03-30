@@ -1,21 +1,24 @@
 // models/User.js
-const users = [
-  {
-    id: 'user1',
-    email: 'demo@example.com',
-    password: '1234'
-  },
-  {
-    id: 'user2',
-    email: 'otra@example.com',
-    password: '5678'
-  }
-]
+import mongoose from 'mongoose'
+import bcrypt from 'bcrypt'
 
-export function findUserByEmail(email) {
-  return users.find(user => user.email === email)
+const userSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true }
+})
+
+userSchema.statics.hashPassword = function (plaintextPassword) {
+  return bcrypt.hash(plaintextPassword, 10)
 }
 
-export function validatePassword(user, password) {
-  return user.password === password
+const User = mongoose.model('User', userSchema)
+
+export default User
+
+export async function findUserByEmail(email) {
+  return await User.findOne({ email })
+}
+
+export async function validatePassword(user, plainPassword) {
+  return await bcrypt.compare(plainPassword, user.password)
 }
