@@ -1,38 +1,45 @@
 <%- include('header.html') %>
 
-<div class="container mt-4">
-  <h1>Login</h1>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card shadow p-4" style="min-width: 400px; max-width: 500px; width: 100%;">
+    <h2 class="text-center mb-3">Login</h2>
 
-  <form method="POST" action="/login">
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email</label>
-      <input
-        type="email"
-        value="<%= email %>"
-        name="email"
-        class="form-control"
-        id="exampleInputEmail1"
-        required
-      >
-    </div>
+    <p class="text-muted text-center mb-4">
+      Bienvenido a <strong>Nodepop</strong>, la web de compraventa de productos de segunda mano.
+      Inicia sesión para ver tus productos, crear nuevos anuncios o eliminarlos fácilmente.
+    </p>
 
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input
-        type="password"
-        name="password"
-        class="form-control"
-        id="exampleInputPassword1"
-        required
-      >
-    </div>
+    <form method="POST" action="/login">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input
+          type="email"
+          value="<%= email %>"
+          name="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          required
+        >
+      </div>
 
-    <button type="submit" class="btn btn-primary">Login</button>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          required
+        >
+      </div>
 
-    <% if (error) { %>
-      <p class="text-danger mt-2"><%= error %></p>
-    <% } %>
-  </form>
+      <button type="submit" class="btn btn-success w-100">Login</button>
+
+      <% if (error) { %>
+        <p class="text-danger mt-3 text-center"><%= error %></p>
+      <% } %>
+    </form>
+  </div>
 </div>
 
 <%- include('footer.html') %>
