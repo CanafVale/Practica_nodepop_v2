@@ -1,0 +1,52 @@
+<%- include('header.html') %>
+
+<div class="container mt-4">
+  <h1>Nuevo producto</h1>
+
+  <form action="/products" method="POST">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Precio (€)</label>
+      <input type="number" class="form-control" id="price" name="price" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="photo" class="form-label">
+        Nombre del archivo de imagen (por ejemplo: iphone.jpg)
+      </label>
+      <input type="text" class="form-control" id="photo" name="photo" placeholder="iphone.jpg" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Tags</label><br>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id="tag-work" type="checkbox" name="tags" value="work">
+        <label class="form-check-label" for="tag-work">Work</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id="tag-lifestyle" type="checkbox" name="tags" value="lifestyle">
+        <label class="form-check-label" for="tag-lifestyle">Lifestyle</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id="tag-motor" type="checkbox" name="tags" value="motor">
+        <label class="form-check-label" for="tag-motor">Motor</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id="tag-mobile" type="checkbox" name="tags" value="mobile">
+        <label class="form-check-label" for="tag-mobile">Mobile</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear producto</button>
+  </form>
+</div>
+
+<%- include('footer.html') %>

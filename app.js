@@ -3,10 +3,12 @@ import path from 'node:path'
 import express from 'express'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
+import { guard } from './lib/sessionManager.js'
 
 import * as loginController from './controllers/loginController.js'
 import * as homeController from './controllers/homeController.js'
 import * as sessionManager from './lib/sessionManager.js'
+import * as productController from './controllers/productController.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -39,5 +41,12 @@ app.get('/login', (req, res, next) => {
 })
 app.post('/login', loginController.postLogin)
 app.get('/logout', loginController.logout)
+
+
+
+app.get('/products/new', guard, productController.newProductForm)
+app.post('/products', guard, productController.createProduct)
+app.post('/products/:id/delete', guard, productController.deleteProduct)
+
 
 export default app
