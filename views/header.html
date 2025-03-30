@@ -1,0 +1,6 @@
+<% if (!session.userId) { %>
+    <a class="btn btn-success" href="/login">Login</a>
+  <% } else { %>
+    <a class="btn btn-outline-success" href="/logout">Logout</a>
+  <% } %>
+  
